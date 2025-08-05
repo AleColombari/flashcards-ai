@@ -1,5 +1,5 @@
 # Flashcards AI
-#### Video Demo:
+#### Video Demo: https://youtu.be/NcQR5NNJ8Is
 #### Description: 
 Flashcards AI is a web application designed to help students learn faster and more effectively by transforming raw educational content into interactive flashcards using artificial intelligence.
 

@@ -1,0 +1,261 @@
+html, body {
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f5f8ff;
+    color: #333;
+}
+
+header {
+    background-color: #2d2d88;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+header a {
+    color: white;
+    background-color: transparent;
+    border: 1px solid white;
+    padding: 6px 12px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.2s;
+}
+
+header a:hover {
+    background-color: white;
+    color: #2d2d88;
+}
+
+.card {
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+
+button {
+    padding: 6px 12px;
+    background-color: #2d2d88;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #1d1d66;
+}
+
+.flash.success {
+    background-color: #a1ffb7;
+    color: #155724;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+}
+
+.flash.error {
+    background-color: #ffb1b7;
+    color: #721c24;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+}
+
+.flashes {
+  position: absolute;
+  top: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 600px;
+}
+
+.flash {
+    transition: opacity 0.5s ease-out;
+}
+
+.dashboard-layout {
+    display: flex;
+    min-height: calc(100vh - 80px);
+}
+
+.dashboard-main {
+    flex: 1;
+    background-color: #f9f9f9;
+    box-sizing: border-box;
+    display: flex;
+
+}
+
+
+.sidebar-fixed-right {
+    position: relative;
+    width: 150px;
+    background-color: #2d2d88;
+    color: white;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: calc(100vh - 175px);
+    overflow-y: auto;
+}
+
+.folder-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex-grow: 1;
+    overflow-y: auto;
+}
+
+.folder-item {
+    margin-bottom: 20px;
+    font-size: 0.9rem;
+}
+
+.folder-item strong {
+    display: block;
+    margin-bottom: 5px;
+    color: #fff;
+}
+
+.sidebar-fixed-right button {
+    background-color: white;
+    color: #2d2d88;
+    border: none;
+    border-radius: 4px;
+    padding: 4px 8px;
+    margin: 2px 0;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 0.8rem;
+}
+
+.sidebar-fixed-right button:hover {
+    background-color: #ddd;
+}
+
+.sidebar-fixed-right input[type="text"] {
+    padding: 5px;
+    border-radius: 4px;
+    border: none;
+    margin-bottom: 4px;
+    font-size: 0.85rem;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.create-folder {
+    border-top: 1px solid rgba(255,255,255,0.3);
+    padding-top: 10px;
+}
+
+.title {
+    font-size: 2.0rem;
+    margin-bottom: 20px;
+    color: #2d2d88;
+}
+
+textarea[name="source_text"] {
+    padding: 16px;
+    font-size: 1rem;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    background-color: #fdfdfd;
+    resize: vertical;
+    height: 250px;
+    width: 700px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    transition: border 0.2s, box-shadow 0.2s;
+    resize: none;
+    overflow-y: auto;
+    overflow-x: hidden;
+    cursor: text;
+}
+
+textarea[name="source_text"]:focus {
+    outline: none;
+    border-color: #2d2d88;
+    box-shadow: 0 0 5px rgba(45, 45, 136, 0.3);
+}
+
+.form-inline {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.form-inline select {
+  flex: 1;
+  padding: 6px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 0.95rem;
+}
+
+.form-inline button {
+  flex-shrink: 0;
+}
+
+.back-button {
+  background-color: #2d2d88;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 16px;
+  margin-bottom: 20px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.back-button:hover {
+  background-color: #1d1d66;
+}
+
+.folder_name {
+    font-weight: bold;
+    color: #2d2d88;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.to_right {
+    float: right;
+}
+
+.flashcard {
+    background: white;
+    padding: 20px;
+    border: 20px solid #f5f8ff;
+    min-height: 350px;
+    color: #2d2d88;
+}
+
+.flashcard-card {
+  white-space: pre-wrap;
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.text-center {
+  text-align: center;
+}

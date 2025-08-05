@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+{% block title %}Folders - Flashcards{% endblock %}
+
+{% block content %}
+    <h3 class = "folder_name"> {{ folder.name}}</h3>
+
+    <a href="{{ url_for('dashboard') }}">
+        <button class="back-button">← Back to Dashboard</button>
+    </a>
+
+    <div class = "to_right">
+        <form method="POST" action="{{ url_for('delete_flashcard', card_id=card.id, folder_id=folder.id, index=index) }}" style="display:inline;">
+            <button type="submit" onclick="return confirm('Are you sure you want to delete this flashcard?');">🗑️ Delete</button>
+        </form>
+    </div>
+
+
+    <div id ="flashcard" onclick="flipCard()" class ="flashcard">
+        <div id="card-front">
+            <div class="flashcard-card">{{ card.front }}</div>
+        </div>
+
+        <div id="card-back" style="display:none;">
+            <div class="flashcard-card">{{ card.back }}</div>
+        </div>
+    </div>
+
+   <div class="text-center"style="margin-top: 20px;">
+    {% if index > 0 %}
+         <a href="{{ url_for('view_folder', folder_id=folder.id, index=index-1) }}"><button>&lt; Previous</button></a>
+    {% endif %}
+
+    {% if index < total - 1 %}
+        <a href="{{ url_for('view_folder', folder_id=folder.id, index=index+1) }}"><button>Next &gt;</button></a>
+    {% endif %}
+    </div>
+
+    <script>
+    function flipCard() {
+        const front = document.getElementById('card-front');
+        const back = document.getElementById('card-back');
+        if (front.style.display !== "none") {
+        front.style.display = "none";
+        back.style.display = "block";
+        } else {
+        front.style.display = "block";
+        back.style.display = "none";
+        }
+    }
+    </script>
+{% endblock %}
+

@@ -1,0 +1,74 @@
+{% extends "layout.html" %}
+{% block title %}Home - Flashcards AI{% endblock %}
+
+{% block content %}
+<div class="dashboard-layout">
+
+    <section class="dashboard-main">
+        
+        <ul>
+            <h4 class="title">Generate Flashcard</h4>
+
+            <form method="POST" action="/create">
+            <div>
+                <label for="source_text">Source Text:</label><br>
+                <textarea name="source_text" rows="5" placeholder="Paste class notes or textbook content..." required></textarea><br>
+            </div>
+
+            <div class="form-inline">   
+                
+                <button type="submit">Generate Flashcard</button>
+                
+                <div>
+                    <label for="folder">Folder:</label>
+                    <select name="folder_id">
+                    <option value="">New Flashcards</option>
+                    {% for folder in folders %}
+                        <option value="{{ folder.id }}">{{ folder.name }}</option>
+                    {% endfor %}
+                    </select><br>
+                </div>
+
+            </div>
+
+            </form>
+        </ul>
+
+    </section>
+
+    <aside class="sidebar-fixed-right">
+    <h5>Folders</h5>
+
+    <ul class="folder-list">
+        {% for folder in folders %}
+        <li class="folder-item">
+            <strong>{{ folder.name }}</strong>
+
+            <a href="{{ url_for('view_folder', folder_id=folder.id) }}">
+            <button>view</button>
+            </a>
+
+            <form method="POST" action="/rename_folder/{{ folder.id }}" style="display:inline;">
+            <input type="text" name="new_name" placeholder="Rename" required style="width: 70px;">
+            <button type="submit">✏️</button>
+            </form>
+
+            <form method="POST" action="/delete_folder/{{ folder.id }}" style="display:inline;">
+            <button type="submit" onclick="return confirm('Delete this folder?')">🗑️</button>
+            </form>
+        </li>
+        {% else %}
+        <li>No folders</li>
+        {% endfor %}
+    </ul>
+
+    <div class="create-folder">
+        <form method="POST" action="/create_folder">
+        <input type="text" name="folder_name" placeholder="New folder" required>
+        <button type="submit">＋</button>
+        </form>
+    </div>
+    </aside>
+
+</div>
+{% endblock %}
